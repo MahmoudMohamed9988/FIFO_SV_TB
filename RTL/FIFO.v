@@ -44,7 +44,9 @@ case ({wr,rd})
            full_next = full;
            rd_pointer_next = rd_pointer + 1'b1;
            if (rd_pointer_next == wr_pointer_next)
-                  empty_next = 1'b1;       
+                  empty_next = 1'b1; 
+               else
+                         empty_next = 1'b0; 
 
         end
 2'b10 : begin // write
@@ -52,7 +54,9 @@ case ({wr,rd})
            empty_next = empty;
            wr_pointer_next = wr_pointer + 1'b1;
            if (wr_pointer_next == rd_pointer_next)
-                  full_next = 1'b1;       
+                  full_next = 1'b1;  
+               else
+                         full_next = 1'b0; 
 
         end
 2'b11 : begin //read and write
